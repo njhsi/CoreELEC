@@ -14,6 +14,8 @@ PKG_TOOLCHAIN="manual"
 post_install() {
   mkdir -p $INSTALL/usr/sbin
     cp -P $PKG_DIR/scripts/installentware $INSTALL/usr/sbin
+  mkdir -p $INSTALL/usr/share/entware
+    cp -P $PKG_DIR/scripts/generic.sh $PKG_DIR/scripts/opkg.conf $INSTALL/usr/share/entware
 
     # Replace Entware Arch
     sed -e "s/@ENTWARE_ARCH@/$ENTWARE_ARCH/g" \

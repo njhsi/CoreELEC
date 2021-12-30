@@ -46,6 +46,9 @@ for arg in $(cat /proc/cmdline); do
         [ -f $SYSTEM_ROOT/usr/bin/convert_dtname ] && . $SYSTEM_ROOT/usr/bin/convert_dtname $DT_ID
 
         case $DT_ID in
+          *khadas_vim3*)
+            SUBDEVICE="Khadas_VIM3"
+            ;;
           *odroid_c4*)
             SUBDEVICE="Odroid_C4"
             ;;

@@ -29,6 +29,9 @@ if [ -n "${PKG_URL}" -a -n "${PKG_SOURCE_NAME}" ]; then
   STAMP_URL="${PACKAGE}.url"
   STAMP_SHA="${PACKAGE}.sha256"
 
+  for pfile in ${SOURCES}/${1}/*; do
+      [ "$NJ_SOURCE_CLEAN" = "yes" ] && [[ ! "$pfile" =~ "${PKG_SOURCE_NAME}" ]] && rm -rf $pfile
+  done
   # determine get handler based on protocol and/or filename
   case "${PKG_URL}" in
     git://*|*.git)
